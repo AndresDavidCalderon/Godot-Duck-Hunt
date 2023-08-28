@@ -63,7 +63,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_jxikj")
 shape = SubResource("ConcavePolygonShape3D_hw118")
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.54612, 0)
+transform = Transform3D(0.993884, 0, -0.110428, 0, 1, 0, 0.110428, 0, 0.993884, 0, 1.54612, 0)
 script = ExtResource("3_eqqsv")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
@@ -75,11 +75,12 @@ shape = SubResource("ConvexPolygonShape3D_e8jcl")
 
 [node name="Head" type="Node3D" parent="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.568156, 0)
+rotation_edit_mode = 1
 
-[node name="Camera3D" type="Camera3D" parent="CharacterBody3D/Head"]
-
-[node name="Gun" type="MeshInstance3D" parent="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.466522, -0.0673411, -0.898095)
+[node name="Gun" type="MeshInstance3D" parent="CharacterBody3D/Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.466522, -0.635497, -0.898095)
 cast_shadow = 0
 mesh = ExtResource("3_bocnq")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D/Head"]

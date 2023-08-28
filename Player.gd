@@ -18,8 +18,7 @@ func _unhandled_input(event):
 	if Input.mouse_mode == 2:
 		if event is InputEventMouseMotion:
 			head.rotate_y(-event.relative.x * 0.007)
-			camera.rotate_x(-event.relative.y * 0.007)
-			camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-30), deg_to_rad(60))
+			head.rotate(Vector3(0,0,1).rotated(Vector3(0,1,0),head.rotation.y+PI/2),-event.relative.y * 0.007)
 
 func _physics_process(delta):
 	# Get the input direction and handle the movement/deceleration.
