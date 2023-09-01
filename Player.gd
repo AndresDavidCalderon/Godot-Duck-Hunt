@@ -8,13 +8,23 @@ const JUMP_VELOCITY = 4.5
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var head := $Head
 @onready var camera := $Head/Camera3D
+@onready var anim := $Head/Gun/AnimationPlayer
+@onready var gun := $Head/Gun/RayCast3D
+@onready var bulletScene := preload("res://bullet.tscn")
 
 func _unhandled_input(event):
 	if event is InputEventMouseButton:
 		Input.mouse_mode = 2 # capture
 	elif event.is_action_pressed("ui_cancel"):
 		Input.mouse_mode = 0 # default
-	
+		
+	if event.is_action_pressed("Shoot"):
+		anim.play("shoot")
+		var bullet = bulletScene.instantiate()
+		bullet.position = gun.global_position
+		bullet.transform.basis = gun.global_transform.basis
+		add_child(bullet)
+		
 	if Input.mouse_mode == 2:
 		if event is InputEventMouseMotion:
 			head.rotate_y(-event.relative.x * 0.007)
