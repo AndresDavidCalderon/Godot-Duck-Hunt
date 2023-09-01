@@ -11,6 +11,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var anim := $Head/Gun/AnimationPlayer
 @onready var gun := $Head/Gun/RayCast3D
 @onready var bulletScene := preload("res://bullet.tscn")
+@onready var bulletsNode:= $Bullets
 
 func _unhandled_input(event):
 	if event is InputEventMouseButton:
@@ -21,10 +22,9 @@ func _unhandled_input(event):
 	if event.is_action_pressed("Shoot"):
 		anim.play("shoot")
 		var bullet = bulletScene.instantiate()
-		bullet.position = gun.global_position
+		bulletsNode.add_child(bullet)
 		bullet.transform.basis = gun.global_transform.basis
-		add_child(bullet)
-		
+		bullet.global_position = gun.global_position
 	if Input.mouse_mode == 2:
 		if event is InputEventMouseMotion:
 			head.rotate_y(-event.relative.x * 0.007)
