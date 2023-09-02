@@ -26,3 +26,5 @@ rotation_edit_mode = 1
 [node name="Gun" parent="Head" instance=ExtResource("2_6k1gs")]
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
+
+[node name="Bullets" type="Node" parent="."]
