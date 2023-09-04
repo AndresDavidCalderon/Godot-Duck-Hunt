@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://v5nrc4mrnx01"]
+
+[ext_resource type="Script" path="res://duck.gd" id="1_p5glt"]
+[ext_resource type="ArrayMesh" uid="uid://dhcqvoato4otw" path="res://assets/Duck.vox" id="1_vt2r8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bfmsh"]
+size = Vector3(0.737186, 0.500739, 0.53726)
+
+[node name="Duck" type="CharacterBody3D"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+script = ExtResource("1_p5glt")
+
+[node name="Duck" type="MeshInstance3D" parent="."]
+cast_shadow = 0
+mesh = ExtResource("1_vt2r8")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0997247, 0.25, 0.0348158)
+shape = SubResource("BoxShape3D_bfmsh")

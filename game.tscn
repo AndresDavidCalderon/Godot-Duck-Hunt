@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://cc214efj0tb0s"]
+[gd_scene load_steps=12 format=3 uid="uid://cc214efj0tb0s"]
 
-[ext_resource type="ArrayMesh" uid="uid://dhcqvoato4otw" path="res://assets/Duck.vox" id="1_i1dqq"]
 [ext_resource type="ArrayMesh" uid="uid://iqkjb38e6foo" path="res://assets/Duckling.vox" id="2_3tqns"]
 [ext_resource type="PackedScene" uid="uid://cp4vfcbnwvulp" path="res://character_body_3d.tscn" id="3_bp0kg"]
 [ext_resource type="PackedScene" uid="uid://duejn86febirv" path="res://assets/Potted Cactus.gltf" id="4_7ifm7"]
+[ext_resource type="PackedScene" uid="uid://v5nrc4mrnx01" path="res://duck.tscn" id="5_7xsn1"]
+[ext_resource type="PackedScene" uid="uid://0aokdfp814i3" path="res://assets/Potted Flower.gltf" id="5_rak34"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_px6ok"]
 sky_top_color = Color(0.603922, 0.67451, 0.984314, 1)
@@ -37,11 +38,6 @@ environment = SubResource("Environment_n4kjp")
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
 shadow_enabled = true
 
-[node name="Duck" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0202432, 0.37926, -4.644)
-cast_shadow = 0
-mesh = ExtResource("1_i1dqq")
-
 [node name="Duckling" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.30339, 0.408174, -4.55069)
 cast_shadow = 0
@@ -58,6 +54,25 @@ surface_material_override/0 = SubResource("StandardMaterial3D_jxikj")
 shape = SubResource("ConcavePolygonShape3D_hw118")
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("3_bp0kg")]
+transform = Transform3D(0.993885, 0, -0.110428, 0, 1, 0, 0.110428, 0, 0.993885, 2.20882, 1.54612, -0.483736)
 
 [node name="Potted Cactus" parent="." instance=ExtResource("4_7ifm7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.63881, 0.0629551, -4.41367)
+
+[node name="Potted Flower" parent="." instance=ExtResource("5_rak34")]
+transform = Transform3D(0.477762, 0.00175303, -0.878487, 0.000328296, 0.999997, 0.00217404, 0.878489, -0.00132707, 0.477761, 3.60715, 0.0629551, -4.28144)
+
+[node name="Potted Flower2" parent="." instance=ExtResource("5_rak34")]
+transform = Transform3D(-0.741293, 0.00170253, -0.67118, 0.000328297, 0.999998, 0.00217404, 0.671182, 0.00139127, -0.741291, 2.71711, 0.0629551, -4.27665)
+
+[node name="Duck" parent="." instance=ExtResource("5_7xsn1")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.43858, 0.577791, -1.92043)
+
+[node name="Duck2" parent="." instance=ExtResource("5_7xsn1")]
+transform = Transform3D(-0.0184424, 0.000248627, 0.99983, 0.0334087, 0.999442, 0.000367736, -0.999272, 0.0334098, -0.0184404, -2.33078, 0.260119, 0.628182)
+
+[node name="Duck3" parent="." instance=ExtResource("5_7xsn1")]
+transform = Transform3D(0.99945, -0.0331552, 0, 0.0331552, 0.99945, 0, 0, 0, 1, -3.31113, 0.260119, -0.771744)
+
+[node name="Duck4" parent="." instance=ExtResource("5_7xsn1")]
+transform = Transform3D(-0.99945, 0.0331552, -8.74228e-08, 0.0331552, 0.99945, 0, 8.73747e-08, -2.89852e-09, -1, -1.36052, 0.260119, -0.64037)
